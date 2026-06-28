@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Cockpit">
+<meta name="theme-color" content="#ffffff">
+<title>Cockpit</title>
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<style>
+:root{
+  --bg:#f1efe8; --surface:#ffffff; --card:#faf9f5; --text:#26251f; --muted:#6b6a63; --faint:#9a988f;
+  --border:#e3e1d8; --strong:#cbc9be;
+  --blue-bg:#e6f1fb; --blue-tx:#185fa5;
+  --amber-bg:#faeeda; --amber-tx:#854f0b;
+  --green-bg:#eaf3de; --green-tx:#3b6d11;
+  --purple-bg:#eeedfe; --purple-tx:#534ab7;
+  --done:#1d9e75;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#1a1a17; --surface:#26251f; --card:#2f2e27; --text:#ece9e0; --muted:#a9a79d; --faint:#7a786f;
+    --border:#3a3930; --strong:#4a493e;
+    --blue-bg:#0c447c; --blue-tx:#b5d4f4;
+    --amber-bg:#633806; --amber-tx:#fac775;
+    --green-bg:#27500a; --green-tx:#c0dd97;
+    --purple-bg:#3c3489; --purple-tx:#cecbf6;
+    --done:#1d9e75;
+  }
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;}
+body{max-width:480px;margin:0 auto;min-height:100vh;display:flex;flex-direction:column;padding-top:env(safe-area-inset-top);}
+header{padding:14px 18px 6px;}
+h1{margin:0;font-size:24px;font-weight:600;}
+.count{margin:2px 0 0;font-size:13px;color:var(--faint);}
+.reset{float:right;font-size:13px;color:var(--blue-tx);cursor:pointer;}
+.chiprow{display:flex;gap:8px;overflow-x:auto;padding:8px 18px 4px;scrollbar-width:none;}
+.chiprow::-webkit-scrollbar{display:none;}
+.chip{flex:none;white-space:nowrap;font-size:13px;padding:7px 13px;border-radius:20px;border:1px solid var(--strong);background:var(--surface);color:var(--muted);cursor:pointer;}
+.chip i{vertical-align:-1px;margin-right:3px;}
+.c-appel{background:var(--blue-bg);color:var(--blue-tx);border-color:transparent;}
+.c-course{background:var(--amber-bg);color:var(--amber-tx);border-color:transparent;}
+.c-next{background:var(--green-bg);color:var(--green-tx);border-color:transparent;}
+.c-pense{background:var(--purple-bg);color:var(--purple-tx);border-color:transparent;}
+.chip.on{outline:2.5px solid currentColor;outline-offset:1px;font-weight:600;}
+.alt.on{background:var(--text);color:var(--surface);border-color:var(--text);outline:none;}
+main{flex:1;overflow-y:auto;padding:6px 12px 12px;}
+.grouphdr{margin:14px 8px 4px;font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--faint);}
+.task{display:flex;align-items:flex-start;gap:11px;padding:11px 8px;border-radius:12px;}
+.task:active{background:var(--card);}
+.check{flex:none;margin-top:4px;width:22px;height:22px;border-radius:50%;border:1.5px solid var(--strong);cursor:pointer;display:flex;align-items:center;justify-content:center;}
+.check.done{background:var(--done);border-color:var(--done);}
+.check.done::after{content:"\2713";color:#fff;font-size:13px;line-height:1;}
+.tile{flex:none;width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:17px;}
+.t-appel .tile{background:var(--blue-bg);color:var(--blue-tx);}
+.t-course .tile{background:var(--amber-bg);color:var(--amber-tx);}
+.t-next .tile{background:var(--green-bg);color:var(--green-tx);}
+.t-action .tile{background:var(--card);color:var(--muted);}
+.t-pense .tile{background:var(--purple-bg);color:var(--purple-tx);}
+.body{flex:1;min-width:0;}
+.ttl{display:block;font-size:16px;line-height:1.35;}
+.task.done .ttl{text-decoration:line-through;color:var(--faint);}
+.meta{display:inline-flex;align-items:center;gap:7px;margin-top:4px;flex-wrap:wrap;}
+.tag{font-size:11px;padding:1px 8px;border-radius:20px;}
+.tag.appel{background:var(--blue-bg);color:var(--blue-tx);}
+.tag.course{background:var(--amber-bg);color:var(--amber-tx);}
+.tag.next{background:var(--green-bg);color:var(--green-tx);}
+.tag.pense{background:var(--purple-bg);color:var(--purple-tx);}
+.src{font-size:12px;color:var(--muted);}
+.src i{vertical-align:-1px;}
+.del{flex:none;margin-top:6px;color:var(--faint);font-size:17px;opacity:.5;cursor:pointer;padding:0 2px;}
+.empty{text-align:center;color:var(--faint);font-size:14px;padding:40px 10px;}
+.capture{display:flex;gap:9px;align-items:center;padding:10px 14px;border-top:1px solid var(--border);background:var(--surface);}
+.capture input{flex:1;height:42px;border:1px solid var(--strong);border-radius:12px;padding:0 13px;font-size:15px;background:var(--bg);color:var(--text);}
+.capture input:focus{outline:none;border-color:var(--purple-tx);}
+.addbtn{flex:none;width:42px;height:42px;border-radius:50%;border:none;background:var(--purple-tx);color:#fff;font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+nav{display:flex;border-top:1px solid var(--border);background:var(--surface);padding-bottom:env(safe-area-inset-bottom);}
+.navbtn{flex:1;text-align:center;padding:9px 0 12px;color:var(--faint);cursor:pointer;border:none;background:none;font-size:10px;}
+.navbtn i{display:block;font-size:21px;margin-bottom:2px;}
+.navbtn.on{color:var(--blue-tx);}
+</style>
+</head>
+<body>
+
+<header>
+  <span class="reset" id="reset" style="display:none">effacer</span>
+  <h1 id="vtitle">Aujourd'hui</h1>
+  <p class="count" id="vcount"></p>
+</header>
+
+<div class="chiprow" id="typechips">
+  <button class="chip c-appel" data-g="type" data-f="appel"><i class="ti ti-phone"></i>Appels</button>
+  <button class="chip c-course" data-g="type" data-f="course"><i class="ti ti-shopping-cart"></i>Courses</button>
+  <button class="chip c-next" data-g="type" data-f="next"><i class="ti ti-arrow-big-right-lines"></i>Next steps</button>
+  <button class="chip c-pense" data-g="type" data-f="pense"><i class="ti ti-bulb"></i>Pense-bête</button>
+</div>
+<div class="chiprow" id="projchips"></div>
+
+<main id="list"></main>
+
+<div class="capture">
+  <input id="cap" type="text" placeholder="Vide-tête : note une idée…" autocomplete="off">
+  <button class="addbtn" id="add" aria-label="Ajouter"><i class="ti ti-plus"></i></button>
+</div>
+
+<nav>
+  <button class="navbtn on" data-tab="today"><i class="ti ti-sun"></i>Aujourd'hui</button>
+  <button class="navbtn" data-tab="proj"><i class="ti ti-folders"></i>Projets</button>
+  <button class="navbtn" data-tab="pense"><i class="ti ti-bulb"></i>Pense-bête</button>
+</nav>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.7.0/dist/tabler-icons.min.css">
+<script>
+(function(){
+  var KEY="cockpit.items.v1";
+  var SEED=[
+    {t:"Valider le montage juridique",type:"next",proj:"Madrigal"},
+    {t:"Préparer l'ordre du jour du COPIL",type:"next",proj:"Sentinel"},
+    {t:"Lancer l'audit des performances",type:"next",proj:"Belmondo"},
+    {t:"Relancer le carrossier",type:"appel",proj:"Datsun"},
+    {t:"Appeler le notaire",type:"appel",proj:"Madrigal"},
+    {t:"Rappeler Jeanne — finance",type:"appel",proj:"Belmondo"},
+    {t:"Rappeler Lionel — ophtalmo",type:"appel",proj:"Madrigal"},
+    {t:"Carrelage salle de bain",type:"course",proj:"Benquet"},
+    {t:"Vis inox + joints",type:"course",proj:"Datsun"},
+    {t:"Barre de son chambre",type:"course",proj:"Seignosse"},
+    {t:"Signer la note de frais Sprinter",type:"action",proj:"Sprinter"},
+    {t:"Newsletter interne mensuelle ?",type:"pense",proj:""},
+    {t:"Tesla distrib = même modèle que Madrigal ?",type:"pense",proj:""},
+    {t:"Lire le bouquin cité par Xavier",type:"pense",proj:""}
+  ];
+  var items=load();
+  var tab="today", typeSel={}, projSel={};
+
+  function load(){
+    try{var s=localStorage.getItem(KEY);if(s)return JSON.parse(s);}catch(e){}
+    var arr=SEED.map(function(x,i){return {id:Date.now()+i,t:x.t,type:x.type,proj:x.proj,done:false,today:x.type!=="pense"};});
+    save(arr);return arr;
+  }
+  function save(arr){try{localStorage.setItem(KEY,JSON.stringify(arr||items));}catch(e){}}
+
+  var ICON={appel:"ti-phone",course:"ti-shopping-cart",next:"ti-arrow-big-right-lines",action:"ti-bolt",pense:"ti-bulb"};
+  var LABEL={appel:"appel",course:"course",next:"next step",pense:"pense-bête"};
+  var TITLES={today:"Aujourd'hui",proj:"Projets",pense:"Pense-bête"};
+
+  function buildProjChips(){
+    var seen={}, names=[];
+    items.forEach(function(it){if(it.proj&&!seen[it.proj]){seen[it.proj]=1;names.push(it.proj);}});
+    var c=document.getElementById("projchips");c.innerHTML="";
+    names.forEach(function(n){
+      var b=document.createElement("button");b.className="chip alt";b.setAttribute("data-g","proj");b.setAttribute("data-f",n);
+      b.textContent=n;if(projSel[n])b.classList.add("on");
+      b.addEventListener("click",function(){projSel[n]=!projSel[n];b.classList.toggle("on",!!projSel[n]);render();});
+      c.appendChild(b);
+    });
+  }
+
+  function keys(o){var a=[];for(var k in o)if(o[k])a.push(k);return a;}
+
+  function passFilter(it){
+    var ts=keys(typeSel), ps=keys(projSel);
+    var okT=ts.length===0||ts.indexOf(it.type)>-1;
+    var okP=ps.length===0||ps.indexOf(it.proj)>-1;
+    return okT&&okP;
+  }
+
+  function rowHTML(it){
+    var icon=ICON[it.type]||"ti-circle";
+    var tag=LABEL[it.type]?'<span class="tag '+it.type+'">'+LABEL[it.type]+'</span>':'';
+    var src=it.proj?'<span class="src"><i class="ti ti-folder"></i> '+esc(it.proj)+'</span>':'';
+    return '<span class="check'+(it.done?' done':'')+'" data-id="'+it.id+'"></span>'+
+      '<span class="tile"><i class="ti '+icon+'"></i></span>'+
+      '<span class="body"><span class="ttl">'+esc(it.t)+'</span><span class="meta">'+tag+src+'</span></span>'+
+      '<span class="del" data-del="'+it.id+'"><i class="ti ti-x"></i></span>';
+  }
+  function esc(s){return (s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+
+  function render(){
+    var L=document.getElementById("list");L.innerHTML="";
+    var pool=items.filter(passFilter);
+    var n=0;
+
+    if(tab==="today"){
+      var vis=pool.filter(function(it){return it.today&&it.type!=="pense";});
+      vis.sort(function(a,b){return (a.done?1:0)-(b.done?1:0);});
+      vis.forEach(function(it){L.appendChild(mkRow(it));n++;});
+    } else if(tab==="pense"){
+      var vis2=items.filter(function(it){return it.type==="pense";});
+      vis2.forEach(function(it){L.appendChild(mkRow(it));n++;});
+    } else {
+      var groups={}, order=[];
+      pool.filter(function(it){return it.proj;}).forEach(function(it){
+        if(!groups[it.proj]){groups[it.proj]=[];order.push(it.proj);}groups[it.proj].push(it);
+      });
+      order.forEach(function(g){
+        var h=document.createElement("p");h.className="grouphdr";h.textContent=g;L.appendChild(h);
+        groups[g].sort(function(a,b){return (a.done?1:0)-(b.done?1:0);});
+        groups[g].forEach(function(it){L.appendChild(mkRow(it));n++;});
+      });
+    }
+    if(n===0){var e=document.createElement("p");e.className="empty";e.textContent="Rien dans cette vue.";L.appendChild(e);}
+
+    var active=keys(typeSel).length+keys(projSel).length;
+    document.getElementById("vtitle").textContent=active?"Vue filtrée":TITLES[tab];
+    document.getElementById("vcount").textContent=n+(n>1?" éléments":" élément");
+    document.getElementById("reset").style.display=active?"inline":"none";
+  }
+
+  function mkRow(it){
+    var d=document.createElement("div");d.className="task t-"+it.type+(it.done?" done":"");
+    d.innerHTML=rowHTML(it);
+    d.querySelector(".check").addEventListener("click",function(){toggle(it.id);});
+    d.querySelector(".del").addEventListener("click",function(e){e.stopPropagation();del(it.id);});
+    return d;
+  }
+  function toggle(id){items.forEach(function(it){if(it.id===id)it.done=!it.done;});save();render();}
+  function del(id){items=items.filter(function(it){return it.id!==id;});save();buildProjChips();render();}
+
+  function addNote(){
+    var inp=document.getElementById("cap");var v=inp.value.trim();if(!v)return;
+    items.unshift({id:Date.now(),t:v,type:"pense",proj:"",done:false,today:false});
+    save();inp.value="";
+    typeSel={};projSel={};document.querySelectorAll(".chip.on").forEach(function(x){x.classList.remove("on");});
+    setTab("pense");
+  }
+
+  function setTab(name){
+    tab=name;
+    document.querySelectorAll(".navbtn").forEach(function(b){b.classList.toggle("on",b.getAttribute("data-tab")===name);});
+    render();
+  }
+
+  document.querySelectorAll("#typechips .chip").forEach(function(c){
+    c.addEventListener("click",function(){
+      var f=c.getAttribute("data-f");typeSel[f]=!typeSel[f];c.classList.toggle("on",!!typeSel[f]);render();
+    });
+  });
+  document.querySelectorAll(".navbtn").forEach(function(b){
+    b.addEventListener("click",function(){setTab(b.getAttribute("data-tab"));});
+  });
+  document.getElementById("reset").addEventListener("click",function(){
+    typeSel={};projSel={};document.querySelectorAll(".chip.on").forEach(function(x){x.classList.remove("on");});render();
+  });
+  document.getElementById("add").addEventListener("click",addNote);
+  document.getElementById("cap").addEventListener("keydown",function(e){if(e.key==="Enter")addNote();});
+
+  buildProjChips();
+  render();
+})();
+</script>
+</body>
+</html>
