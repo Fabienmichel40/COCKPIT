@@ -53,6 +53,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Ar
 .nav button.on{color:var(--blue);font-weight:600}
 .nav .ic{display:block;font-size:18px;margin-bottom:2px}
 .ver{color:#b9b8b1;font-size:11px;text-align:center;margin:18px 0 6px}
+
+.proj-card{display:flex;gap:10px;padding:9px 4px;border-top:1px solid var(--line);align-items:flex-start}
+.proj-card:first-child{border-top:none}
+.badge{width:30px;height:30px;border-radius:8px;color:#fff;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;flex:none}
+.pc-body{flex:1;min-width:0}.pc-nom{font-weight:600;font-size:14.5px}
+.ptask{font-size:12.5px;color:var(--mut);margin-top:2px}.ptask.s{font-style:italic;opacity:.8}
+.lane-h .ic{font-size:15px;margin-right:2px}
 </style>
 </head>
 <body>
@@ -84,7 +91,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Ar
 </div>
 
 <script>
-const VERSION='v0.3';
+const VERSION='v0.4';
 const TYPES=['Appels','Courses','Next steps','Pense-bête'];
 const PROJETS=['Madrigal','Sentinelle','Belmondo','Terroir','Datsun','Origine'];
 const SEED=[
@@ -118,38 +125,194 @@ const DEFAULT_DATA={
     "Gardien de la culture"
   ],
   "projets_pro": [
-    "ANATOLE",
-    "ARBRE A CAFE",
-    "BOOST LIEUTENANTS",
-    "BOULANGERIE GROUPE",
-    "CONSOLIDATION GROUPE",
-    "DISTRIBUTEURS",
-    "EVAKIT",
-    "FABRICATION DE PATES",
-    "FERMETURE BRICODIS",
-    "GT PRO SCALANDES",
-    "IMMOBILIER GROUPE",
-    "ISLO",
-    "LECLERC B TO B",
-    "MOUN PRO",
-    "ORIGINE STUDIO",
-    "OUTIL GESTION TACHES",
-    "PROTOCOLE SENTINELLE",
-    "RACHAT ETANG",
-    "TERROIR D EUGENIE",
-    "THE ASSISTANT"
+    {
+      "nom": "ANATOLE",
+      "taches": [
+        "Cartographie complete des creanciers — Identifier tous les creanciers, montants,",
+        "Comprendre la dette Anatole → Darwin — Structure des comptes courants"
+      ]
+    },
+    {
+      "nom": "ARBRE A CAFE",
+      "taches": [
+        "Chiffrer notre exposition réelle : apport + compte courant + cautions/garanties ",
+        "Vérifier acte par acte l'absence (ou l'existence) de caution personnelle — risqu"
+      ]
+    },
+    {
+      "nom": "BOOST LIEUTENANTS",
+      "taches": [
+        "Ajouter écarts N-1 au TDB dépenses LG",
+        "Ajouter références SCA dans analyse détention"
+      ]
+    },
+    {
+      "nom": "BOULANGERIE GROUPE",
+      "taches": []
+    },
+    {
+      "nom": "CONSOLIDATION GROUPE",
+      "taches": [
+        "Lancer extractbcr.py sur les 11 sociétés",
+        "Générer compte d'exploitation consolidé V1 (sommation simple, hors holdings)"
+      ]
+    },
+    {
+      "nom": "DISTRIBUTEURS",
+      "taches": []
+    },
+    {
+      "nom": "EVAKIT",
+      "taches": [
+        "Corriger bug panier (annulation + notification erronee) —  — 18/04",
+        "Developper portail B2B avec landing pages par secteur —  — 15/05"
+      ]
+    },
+    {
+      "nom": "FABRICATION DE PATES",
+      "taches": []
+    },
+    {
+      "nom": "FERMETURE BRICODIS",
+      "taches": [
+        "Eric Guillen — Appel Frederic Grisel (CAC) pour explication arbitrage avant arre",
+        "Eric Guillen — Caler RDV avec Olivier Bera pour preparation negociation Weldom"
+      ]
+    },
+    {
+      "nom": "GT PRO SCALANDES",
+      "taches": [
+        "Analyser écarts BP vs réalisé",
+        "Identifier 3 points d'attention pour le prochain GT"
+      ]
+    },
+    {
+      "nom": "IMMOBILIER GROUPE",
+      "taches": []
+    },
+    {
+      "nom": "ISLO",
+      "taches": []
+    },
+    {
+      "nom": "LECLERC B TO B",
+      "taches": [
+        "Nom du president SCAMARK a inserer",
+        "Verifier CA CCPL (40 M€ note \"a verifier\" dans memo projet)"
+      ]
+    },
+    {
+      "nom": "MOUN PRO",
+      "taches": [
+        "Lire le fichier xlsm",
+        "Croiser avec prospects-google-sheets-complet.csv déjà dans sources"
+      ]
+    },
+    {
+      "nom": "ORIGINE STUDIO",
+      "taches": [
+        "[ORIGINE STUDIO] Diversification soins IDE — Sortir du \"tout epilation\", pousser",
+        "[ORIGINE STUDIO] Detatouage securise — Bloquer les RDV sur plages medecin + tele"
+      ]
+    },
+    {
+      "nom": "OUTIL GESTION TACHES",
+      "taches": [
+        "Apps Script personnel sur compte Pro : a valider  avant 25/04",
+        "Forwarding Gmail Pro vers domaine externe (tasks.clickup.com) : a confirmer"
+      ]
+    },
+    {
+      "nom": "PROTOCOLE SENTINELLE",
+      "taches": [
+        "Controle + validation des chiffres en base par directeurs —   — 08/05",
+        "Mapper tous les secteurs pour les modeles Abaco —  — urgent"
+      ]
+    },
+    {
+      "nom": "RACHAT ETANG",
+      "taches": [
+        "Appel 10h30 — Fabien + Mme Pommier + Jean-Francois Morvan",
+        "Reconstitution valorisation L'Etang au moment du rachat des parts (Mme Pommier)"
+      ]
+    },
+    {
+      "nom": "TERROIR D EUGENIE",
+      "taches": []
+    },
+    {
+      "nom": "THE ASSISTANT",
+      "taches": [
+        "Recuperer comptes 2025 aupres du comptable —  — prioritaire",
+        "Valider bilan 2024 + etudier scenario reduction capital —  — 31/05"
+      ]
+    }
   ],
   "projets_perso": [
-    "APPRENTISSAGE ESPACÉ",
-    "COCKPIT",
-    "COMME DES BETES",
-    "DATSUN",
-    "FINANCE 2026",
-    "LIFE PROD",
-    "MARIE MARVINGT",
-    "SPRINTER",
-    "TRAVAUX BENQUET",
-    "Santé 2026"
+    {
+      "nom": "APPRENTISSAGE ESPACÉ",
+      "taches": []
+    },
+    {
+      "nom": "COCKPIT",
+      "taches": [
+        "tailscale status (sur le VPS) liste bien le Mac, et inversement.",
+        "ping MACTSIP depuis le VPS répond."
+      ]
+    },
+    {
+      "nom": "COMME DES BETES",
+      "taches": [
+        "Generer les 5 bibles restantes en Midjourney v7 :  (Kimmel),  (Macron),  (Bayrou",
+        "Iteration  : pousser la mèche frontale plaquée signature Bardella via cref weigh"
+      ]
+    },
+    {
+      "nom": "DATSUN",
+      "taches": [
+        "Prendre RDV avec Nico à Capbreton — faisabilité Datsun, délai, process, chiffrag",
+        "Étudier la gamme MZR Roadsports en détail (galerie, process, demander tarifs ind"
+      ]
+    },
+    {
+      "nom": "FINANCE 2026",
+      "taches": []
+    },
+    {
+      "nom": "LIFE PROD",
+      "taches": [
+        "tailscale status (sur le VPS) liste bien le Mac, et inversement.",
+        "ping MACTSIP depuis le VPS répond."
+      ]
+    },
+    {
+      "nom": "MARIE MARVINGT",
+      "taches": [
+        "[MARIE MARVINGT] Finaliser et enrichir le pre-dossier (recherche historique comp",
+        "[MARIE MARVINGT] Identifier les sources d'archives sur Marie Marvingt (photos, f"
+      ]
+    },
+    {
+      "nom": "SPRINTER",
+      "taches": [
+        "Règlement van",
+        "BLOQUANT — confirmer chimie + tension de la batterie 460 Ah et l'autonomie clim "
+      ]
+    },
+    {
+      "nom": "TRAVAUX BENQUET",
+      "taches": [
+        "DCE relancée ou en cours d'attribution ?",
+        "Date de démarrage chantier prévue ?"
+      ]
+    },
+    {
+      "nom": "Santé 2026",
+      "taches": [
+        "Bilan mi-année",
+        "Bilan sanguin suivi (glycémie, HbA1c, testo, vit D)"
+      ]
+    }
   ],
   "a_lire": [
     "FL-Wegner-1987-Effets-Paradoxaux-Suppression",
@@ -168,10 +331,7 @@ const DEFAULT_DATA={
     "▶ I Built Self Evolving Claude Code Memory LLM Knowledge Bases"
   ],
   "formations": [
-    "SKETCHNOTING - AVOIR DU GOUT",
-    "FR - VERBAL TO VISUAL",
-    "FR - FORMATION  FUSION 360",
-    "Ch01 - La Cellule Animale"
+    "SKETCHNOTING - AVOIR DU GOUT"
   ],
   "en_attente": []
 };
@@ -211,16 +371,26 @@ function lane(title,arr,opt){
   else { h+= arr.length? arr.map(x=>'<div class="li">'+esc(x)+'</div>').join('') : '<div class="li s">—</div>'; }
   return h+'</div>';
 }
+function colorFor(s){s=s||'';let h=0;for(let i=0;i<s.length;i++)h=(h*31+s.charCodeAt(i))%360;return 'hsl('+h+',52%,52%)';}
+function laneProjects(title,icon,arr){
+  arr=arr||[];const z=arr.length?'':' zero';
+  let h='<div class="lane"><div class="lane-h"><span class="t"><span class="ic">'+icon+'</span>'+esc(title)+'</span><span class="c'+z+'">'+arr.length+'</span></div>';
+  h+=arr.map(p=>{const nom=esc(p.nom||p);const ini=((p.nom||p).trim()[0]||'?').toUpperCase();
+    let c='<div class="proj-card"><div class="badge" style="background:'+colorFor(p.nom||p)+'">'+ini+'</div><div class="pc-body"><div class="pc-nom">'+nom+'</div>';
+    const tk=(p.taches||[]);
+    c+= tk.length? tk.map(x=>'<div class="ptask">→ '+esc(x)+'</div>').join('') : '<div class="ptask s">pas de prochaine action</div>';
+    return c+'</div></div>';}).join('');
+  return h+'</div>';
+}
 function renderHorizon(){
-  const d=DATA||{};
-  let h='';
-  h+=lane('Responsabilités',d.responsabilites,'pills');
-  h+=lane('Projets pro',d.projets_pro);
-  h+=lane('Projets perso',d.projets_perso);
-  h+=lane('À lire',d.a_lire);
-  h+=lane('À voir',d.a_voir);
-  h+=lane('Formations en cours',d.formations);
-  h+=lane('En attente',d.en_attente);
+  const d=DATA||{};let h='';
+  h+=lane('\u{1F3AF} Responsabilités',d.responsabilites,'pills');
+  h+=laneProjects('Projets pro','\u{1F4CB}',d.projets_pro);
+  h+=laneProjects('Projets perso','\u{1F4C1}',d.projets_perso);
+  h+=lane('\u{1F4D6} À lire',d.a_lire);
+  h+=lane('\u{25B6}\u{FE0F} À voir',d.a_voir);
+  h+=lane('\u{1F393} Formations en cours',d.formations);
+  h+=lane('\u{23F3} En attente',d.en_attente);
   document.getElementById('horizon').innerHTML=h;
 }
 function renderBrief(){
